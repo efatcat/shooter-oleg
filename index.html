@@ -1,49 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neon Revenant</title>
-  <link rel="stylesheet" href="./styles.css?v=perf7">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=perf8">
 </head>
 <body>
   <div class="shell">
-    <canvas id="game" width="960" height="540" aria-label="Neon Revenant 3D shooter"></canvas>
+    <canvas id="game" width="960" height="540" aria-label="Neon Revenant 3D шутер"></canvas>
 
     <div class="dev-console hidden" id="devConsole">
-      <div class="dev-console__label">Console</div>
+      <div class="dev-console__label">Консоль</div>
       <input
         id="devConsoleInput"
         class="dev-console__input"
         type="text"
         autocomplete="off"
         spellcheck="false"
-        placeholder="?????????? | ??? ?? 500 | ?????? ?????? 5 | ????? ????? 20"
+        placeholder="бог | хп 500 | выдать оружие 5 | спавн мобов 20"
       >
-      <div class="dev-console__hint" id="devConsoleHint">` ??? ? ????????? ???????</div>
+      <div class="dev-console__hint" id="devConsoleHint">Нажмите ` для открытия консоли</div>
     </div>
 
     <div class="overlay" id="overlay">
       <div class="panel">
-        <p class="eyebrow">Browser 3D Shooter</p>
+        <p class="eyebrow">Браузерный 3D шутер</p>
         <h1>Neon Revenant</h1>
         <p class="lead">
-          Fast raycast shooter with mouse look, glowing corridors, enemy fire, pickups,
-          and a chunky arena vibe.
+          Быстрый рейкаст-шутер с управлением от мыши, светящимися коридорами,
+          врагами, аптечками и атмосферой старой школы.
         </p>
         <div class="controls">
-          <span>WASD move</span>
-          <span>Mouse look</span>
-          <span>Click shoot</span>
-          <span>Shift sprint</span>
-          <span>R restart</span>
+          <span>WASD движение</span>
+          <span>Мышь осмотр</span>
+          <span>Клик выстрел</span>
+          <span>Shift бег</span>
+          <span>R перезапуск</span>
         </div>
-        <button id="startButton">Start Mission</button>
-        <p class="hint">Click the game and allow pointer lock for proper aiming.</p>
+        <button id="startButton">Начать миссию</button>
+        <p class="hint">Кликните по игре и разрешите захват мыши для прицеливания.</p>
       </div>
     </div>
   </div>
 
-  <script defer src="./game.js?v=perf7"></script>
+  <script defer src="./game.js?v=perf8"></script>
 </body>
 </html>
