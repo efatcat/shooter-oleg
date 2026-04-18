@@ -21,13 +21,15 @@ body {
     radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.12), transparent 26%),
     linear-gradient(180deg, #07111f 0%, #030712 100%);
   color: var(--text);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Unbounded", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   display: grid;
   place-items: center;
   overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 .shell {
@@ -71,6 +73,7 @@ canvas {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .dev-console__input {
@@ -82,6 +85,7 @@ canvas {
   padding: 12px 14px;
   font-size: 15px;
   outline: none;
+  font-family: "Unbounded", monospace;
 }
 
 .dev-console__input::placeholder {
@@ -92,6 +96,7 @@ canvas {
   margin-top: 8px;
   color: #96a7c5;
   font-size: 12px;
+  font-weight: 400;
 }
 
 .overlay {
@@ -111,69 +116,90 @@ canvas {
 }
 
 .panel {
-  max-width: 580px;
-  padding: 34px 34px 28px;
-  border-radius: 28px;
+  max-width: min(75vw, 500px);
+  width: 75%;
+  margin: 0;
+  padding: clamp(12px, 3vh, 24px) clamp(16px, 4vw, 28px);
+  border-radius: 24px;
   background: var(--panel);
   border: 1px solid var(--line);
   box-shadow:
     0 24px 70px rgba(0, 0, 0, 0.4),
     inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  max-height: 75vh;
+  overflow: hidden;
 }
 
 .eyebrow {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   color: var(--accent);
-  font-size: 13px;
-  letter-spacing: 0.22em;
+  font-size: clamp(9px, 2vw, 11px);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(40px, 7vw, 68px);
-  line-height: 0.95;
+  font-size: clamp(22px, 5vw, 48px);
+  line-height: 1.1;
+  font-weight: 800;
+  word-break: keep-all;
 }
 
 .lead {
-  margin: 18px 0 22px;
+  margin: 12px 0 16px;
   color: var(--muted);
-  font-size: 18px;
-  line-height: 1.55;
+  font-size: clamp(10px, 2.5vw, 14px);
+  line-height: 1.4;
+  font-weight: 500;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 6px;
+  margin-bottom: 16px;
+  justify-content: center;
 }
 
 .controls span {
-  padding: 10px 14px;
+  padding: 4px 8px;
   border-radius: 999px;
   border: 1px solid rgba(125, 211, 252, 0.16);
   background: rgba(10, 20, 38, 0.72);
   color: #dbe9ff;
-  font-size: 14px;
+  font-size: clamp(8px, 2vw, 11px);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 button {
   border: 0;
-  padding: 15px 22px;
-  border-radius: 14px;
+  padding: 8px 16px;
+  border-radius: 12px;
   background: linear-gradient(135deg, var(--accent), #38bdf8 60%, #0ea5e9);
   color: #03111d;
-  font-size: 16px;
+  font-size: clamp(12px, 3vw, 14px);
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 18px 40px rgba(56, 189, 248, 0.28);
+  box-shadow: 0 12px 28px rgba(56, 189, 248, 0.28);
+  font-family: "Unbounded", sans-serif;
+  width: auto;
+  min-width: 160px;
 }
 
 .hint {
-  margin: 16px 0 0;
+  margin: 12px 0 0;
   color: #92a3c6;
-  font-size: 14px;
+  font-size: clamp(9px, 2vw, 11px);
+  font-weight: 500;
+  text-align: center;
+  word-break: break-word;
 }
 
 @media (max-width: 920px) {
@@ -191,12 +217,85 @@ button {
     right: 16px;
     top: 16px;
   }
-
+  
   .panel {
-    padding: 24px;
+    width: 80%;
+    padding: 12px 16px;
   }
+  
+  .controls {
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  
+  .controls span {
+    padding: 3px 6px;
+  }
+  
+  button {
+    padding: 6px 12px;
+    min-width: 140px;
+  }
+}
 
+@media (max-width: 640px) {
+  .controls span {
+    white-space: normal;
+    text-align: center;
+    font-size: 7px;
+    padding: 3px 5px;
+  }
+  
+  .panel {
+    width: 85%;
+    padding: 10px 14px;
+  }
+  
   .lead {
-    font-size: 16px;
+    margin: 8px 0 12px;
+  }
+  
+  h1 {
+    line-height: 1.2;
+  }
+  
+  button {
+    padding: 5px 10px;
+    min-width: 120px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    width: 90%;
+    padding: 8px 12px;
+  }
+  
+  .eyebrow {
+    margin-bottom: 6px;
+  }
+  
+  .lead {
+    margin: 6px 0 10px;
+  }
+  
+  .controls {
+    margin-bottom: 10px;
+  }
+  
+  .controls span {
+    font-size: 6px;
+    padding: 2px 4px;
+  }
+  
+  button {
+    padding: 4px 8px;
+    min-width: 100px;
+    font-size: 10px;
+  }
+  
+  .hint {
+    margin: 8px 0 0;
   }
 }
