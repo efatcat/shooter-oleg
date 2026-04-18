@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Revenant</title>
+  <link rel="stylesheet" href="./styles.css?v=perf7">
+</head>
+<body>
+  <div class="shell">
+    <canvas id="game" width="960" height="540" aria-label="Neon Revenant 3D shooter"></canvas>
+
+    <div class="dev-console hidden" id="devConsole">
+      <div class="dev-console__label">Console</div>
+      <input
+        id="devConsoleInput"
+        class="dev-console__input"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="?????????? | ??? ?? 500 | ?????? ?????? 5 | ????? ????? 20"
+      >
+      <div class="dev-console__hint" id="devConsoleHint">` ??? ? ????????? ???????</div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <div class="panel">
+        <p class="eyebrow">Browser 3D Shooter</p>
+        <h1>Neon Revenant</h1>
+        <p class="lead">
+          Fast raycast shooter with mouse look, glowing corridors, enemy fire, pickups,
+          and a chunky arena vibe.
+        </p>
+        <div class="controls">
+          <span>WASD move</span>
+          <span>Mouse look</span>
+          <span>Click shoot</span>
+          <span>Shift sprint</span>
+          <span>R restart</span>
+        </div>
+        <button id="startButton">Start Mission</button>
+        <p class="hint">Click the game and allow pointer lock for proper aiming.</p>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="./game.js?v=perf7"></script>
+</body>
+</html>
